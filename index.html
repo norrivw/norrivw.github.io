@@ -1,5 +1,5 @@
 <input type="file" accept="image/*" onchange="loadFile(event)" />
-<img id="image" onmouseover="test(this)" onmouseout="test2(this)" />
+<img id="image" onmouseover="test(this)" onclick="test2(this)" />
 <div id="coordinates">0</div>
 <script>
   function loadFile(event) {
@@ -8,7 +8,7 @@
   }
   function test(image) {
     var coordinates = document.getElementById('coordinates');
-    coordinates.innerHTML = 100;
+    coordinates.innerHTML = '(' + image.x + ', ' + image.y + ')';
   }
   function test2(image) {
     var coordinates = document.getElementById('coordinates');
