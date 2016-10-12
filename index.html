@@ -1,8 +1,12 @@
 <input type="file" accept="image/*" onchange="loadFile(event)">
-<img id="image"/>
+<img id="image" onmouseover="test(this)"/>
 <script>
-  var loadFile = function(event) {
+  function loadFile(event) {
     var image = document.getElementById('image');
     image.src = URL.createObjectURL(event.target.files[0]);
-  };
+  }
+  function test(image) {
+    image.style.height = "464px";
+    image.style.width = "464px"; 
+  }
 </script>
