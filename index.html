@@ -1,16 +1,18 @@
 <input type="file" accept="image/*" onchange="loadFile(event)" />
 <div style="height: 400px;">
-  <img id="image" onmousedown="test(this)" style="max-height: 100%;" />
+  <img id="image" onmousedown="getCoordinates(this)" style="max-height: 100%;" />
 </div>
-<div id="coordinates">0</div>
+<div id="coordinates"></div>
 <script>
   function loadFile(event) {
     var image = document.getElementById('image');
     image.src = URL.createObjectURL(event.target.files[0]);
   }
-  function test(image) {
+  function getCoordinates(image) {
     var coordinates = document.getElementById('coordinates');
     var event = window.event;
-    coordinates.innerHTML = '(' + (event.clientX - image.x) + ', ' + (event.clientY - image.y) + ')';
+    var x = event.clientX - image.x;
+    var y = event.clientY - image.y;
+    coordinates.innerHTML = 'Coordinates: (' + x + ', ' + y + ')';
   }
 </script>
