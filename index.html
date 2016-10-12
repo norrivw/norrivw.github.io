@@ -2,22 +2,26 @@
 <html>
   <head>
     <script>
-      function showImage(input) {
+      function readURL(input) {
         if (input.files && input.files[0]) {
-          var reader = new FileReader();
+          var reader = new FileReader();  
           reader.onload = function (e) {
-            $('#image')
-            .attr('src', e.target.result)
-          };
+            $('#image').attr('src', e.target.result);
+          }        
           reader.readAsDataURL(input.files[0]);
         }
       }
+      $("#imgInp").change(function(){
+        readURL(this);
+      });
     </script>
     <meta charset=utf-8 />
     <title>Get Image Coordinates</title>
   </head>
   <body>
-    <input type='file' onchange="showImage(this);" />
-    <img id="image" src="" />
+    <form id="form" runat="server">
+      <input type='file' id="imgInp" />
+      <img id="image" src="#" alt="" />
+    </form>
   </body>
 </html>
