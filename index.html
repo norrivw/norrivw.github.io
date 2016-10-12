@@ -8,7 +8,8 @@
   }
   function test(image) {
     var coordinates = document.getElementById('coordinates');
-    coordinates.innerHTML = '(' + image.x + ', ' + image.y + ')' + " - " + image.clientX + ", " + image.clientY;
+    var event = window.event;
+    coordinates.innerHTML = '(' + (event.clientX - image.x) + ', ' + (event.clientY - image.y) + ')';
   }
   function test2(image) {
     var coordinates = document.getElementById('coordinates');
