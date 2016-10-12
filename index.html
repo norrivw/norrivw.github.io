@@ -7,7 +7,7 @@
     image.src = URL.createObjectURL(event.target.files[0]);
   }
   function test(image) {
-    var coordinates document.getElementById('coordinate');
+    var coordinates = document.getElementById('coordinate');
     coordinates.html = image.x + image.y;
   }
 </script>
