@@ -11,8 +11,11 @@
   function getCoordinates(image) {
     var coordinates = document.getElementById('coordinates');
     var event = window.event;
+    var imgWidth = image.width;
+    var imgHeight = image.height;
     var x = event.clientX - image.x;
     var y = event.clientY - image.y;
-    coordinates.innerHTML = 'Coordinates: (' + x + ', ' + y + ')';
+    //coordinates.innerHTML = 'Coordinates: (' + x + ', ' + y + ')';
+    coordinates.innerHTML = 'Coordinates: (' + imgWidth + ', ' + imgHeight + ')';
   }
 </script>
