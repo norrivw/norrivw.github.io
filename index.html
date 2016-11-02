@@ -1,16 +1,21 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
 <input type="file" accept="image/*" onchange="loadFile(event)" />
 <div id="coordinates">Preview and click on image to get coordinates</div>
-<img id="image" onmousedown="getCoordinates(this)" />
+<img id="image" />
 <script>
   function loadFile(event) {
     var image = document.getElementById('image');
     image.src = URL.createObjectURL(event.target.files[0]);
   }
-  function getCoordinates(image) {
-    var coordinates = document.getElementById('coordinates');
-    var event = window.event;
-    var x = event.clientX - image.x;
-    var y = event.clientY - image.y;
-    coordinates.innerHTML = 'Coordinates: (' + x + ', ' + y + ')';
-  }
+  $(document).ready(function() {
+    $('#image').click(function(e) {
+      var offset = $(this).offset();
+      var x = e.pageX - offset.left;
+      var y = e.pageY - offset.top;
+      coordinates = document.getElementById('coordinates');
+      coordinates.innerHTML = 'Coordinates: (' + x + ', ' + y + ')';
+    });
+  });
 </script>
